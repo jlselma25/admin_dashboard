@@ -8,7 +8,7 @@ class DashboardView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       child: const Center(
-        child: Text('Dashboard View'),
+        child: Text('Dashboard Viewwwwwwww'),
       ),
     );
   }

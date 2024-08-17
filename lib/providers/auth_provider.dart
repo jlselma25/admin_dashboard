@@ -1,6 +1,8 @@
 
 
+import 'package:admn_dashboard/router/router.dart';
 import 'package:admn_dashboard/services/local_storage.dart';
+import 'package:admn_dashboard/services/navigation_service.dart';
 import 'package:flutter/material.dart';
 
 
@@ -27,9 +29,13 @@ class AuthProvider extends ChangeNotifier{
     _token = 'almacenar token: GFFDFDGDFGDF.?¿¡¡-llpkkkjdd.!!!fdfdgfcxzx';
     print('Token JWT: $_token');
     LocalStorage.prefs.setString('token',_token!);
-     authStatus= AuthStatus.authenticated; 
-
+    
+    authStatus= AuthStatus.authenticated; 
     notifyListeners();
+
+    NavigationService.replaceTo(Flurorouter.dashBoardRoute);
+
+    //isAuth();
   }
 
 

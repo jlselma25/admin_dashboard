@@ -1,17 +1,34 @@
 
 
+import 'package:admn_dashboard/providers/auth_provider.dart';
 import 'package:admn_dashboard/ui/views/dashboard_view.dart';
+import 'package:admn_dashboard/ui/views/login_view.dart';
 import 'package:fluro/fluro.dart';
+import 'package:provider/provider.dart';
 
 class DashboardHandlers {
 
   static Handler dashboard = Handler(
     handlerFunc: (context, params){
-      return const DashboardView();
+
+      final authProvider = Provider.of<AuthProvider>(context!, listen: false);
+
+      if(authProvider.authStatus == AuthStatus.authenticated){
+         return const DashboardView();
+      }      
+      else{
+        return const LoginView();
+      }
+
+     
 
     }
     
     );
+
+
+
+    
 
     
 

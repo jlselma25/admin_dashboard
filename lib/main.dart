@@ -41,7 +41,7 @@ class MainApp extends StatelessWidget {
     return  MaterialApp(
       title: 'Admin dashboard',
       debugShowCheckedModeBanner: false,
-      initialRoute: Flurorouter.loginRoute,
+      initialRoute: Flurorouter.rootRoute,
       onGenerateRoute: Flurorouter.router.generator,
       navigatorKey: NavigationService.navigatorKey,
       builder: (_, child){
@@ -54,9 +54,13 @@ class MainApp extends StatelessWidget {
 
         if (authProvider.authStatus == AuthStatus.authenticated){
           return DashboardLayout(child: child!);
-        }       
+        }    
+        else{
+          return AuthLayout(child: child!);
+        }   
        
-        return AuthLayout(child: child!);
+        
+    //    
       },
       theme: ThemeData.light().copyWith(
         scrollbarTheme: const ScrollbarThemeData().copyWith(

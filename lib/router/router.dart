@@ -23,7 +23,7 @@ class Flurorouter{
     router.define(loginRoute, handler: AdminHandlers.login,transitionType: TransitionType.none);
     router.define(loginRegister, handler: AdminHandlers.register, transitionType: TransitionType.none);
 
-     router.define(dashBoardRoute, handler: DashboardHandlers.dashboard,transitionType: TransitionType.fadeIn);
+    router.define(dashBoardRoute, handler: DashboardHandlers.dashboard,transitionType: TransitionType.fadeIn);
 
 
    router.notFoundHandler = NoPageFoundHandlers.pageNotFound;
