@@ -12,7 +12,7 @@ class AdminHandlers {
   static Handler login = Handler(
     handlerFunc: (context, params){
      
-      final authProvider = Provider.of<AuthProvider>(context!);
+      final authProvider = Provider.of<AuthProvider>(context!);      
 
       if(authProvider.authStatus == AuthStatus.noAuthenticated){
         return const LoginView();

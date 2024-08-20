@@ -49,7 +49,7 @@ Future<bool>isAuth() async{
     return false;
   }
 
-  await Future.delayed(const Duration(seconds: 5));
+  await Future.delayed(const Duration(seconds: 2));
   authStatus= AuthStatus.authenticated;
   notifyListeners();
   

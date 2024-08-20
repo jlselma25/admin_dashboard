@@ -16,6 +16,10 @@ class Flurorouter{
 
   static String dashBoardRoute = '/dashboard';
 
+  static String iconsRoute= '/dashboard/icons';
+  static String blankRoute= '/dashboard/blank';
+
+
 
   static void configureRoutes(){
 
@@ -23,7 +27,9 @@ class Flurorouter{
     router.define(loginRoute, handler: AdminHandlers.login,transitionType: TransitionType.none);
     router.define(loginRegister, handler: AdminHandlers.register, transitionType: TransitionType.none);
 
-    router.define(dashBoardRoute, handler: DashboardHandlers.dashboard,transitionType: TransitionType.fadeIn);
+    router.define(dashBoardRoute, handler: DashboardHandlers.dashboard,transitionType: TransitionType.none);
+    router.define(iconsRoute, handler: DashboardHandlers.icons,transitionType: TransitionType.none);
+    router.define(blankRoute, handler: DashboardHandlers.blank,transitionType: TransitionType.none);
 
 
    router.notFoundHandler = NoPageFoundHandlers.pageNotFound;

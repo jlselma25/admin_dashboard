@@ -2,6 +2,7 @@
 
 
 import 'package:admn_dashboard/providers/auth_provider.dart';
+import 'package:admn_dashboard/providers/sidemenu_provider.dart';
 import 'package:admn_dashboard/router/router.dart';
 import 'package:admn_dashboard/services/local_storage.dart';
 import 'package:admn_dashboard/services/navigation_service.dart';
@@ -26,7 +27,11 @@ class AppState extends StatelessWidget {
       providers: [
         ChangeNotifierProvider(
           lazy: false,
-          create: (_) => AuthProvider())
+          create: (_) => AuthProvider()),
+
+        ChangeNotifierProvider(
+          lazy: false,
+          create:(_) => SideManuProvider())
       ],
       child: const MainApp()
     );
