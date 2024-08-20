@@ -16,7 +16,13 @@ class RegisterFormProvider extends ChangeNotifier{
     print(email);
     print(password);
     print(name);
+
+    return true;
    }
+   else{
+    return false;
+   }
+   
   }
 
 }

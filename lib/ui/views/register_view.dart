@@ -1,9 +1,11 @@
+import 'package:admn_dashboard/providers/auth_provider.dart';
 import 'package:admn_dashboard/providers/register_from_provider.dart';
 import 'package:admn_dashboard/router/router.dart';
 import 'package:admn_dashboard/ui/buttons/custom_outlined_button.dart';
 import 'package:admn_dashboard/ui/buttons/link_text.dart';
 import 'package:admn_dashboard/ui/inputs/custom_input.dart';
 import 'package:email_validator/email_validator.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -92,7 +94,12 @@ class RegisterView extends StatelessWidget {
           
                       CustomOutlinedButton(
                         onPressed: (){
-                          registerFormProvider.validateForm();
+                          final validForm =  registerFormProvider.validateForm();
+
+                          if(validForm){
+                           final authProvider = Provider.of<AuthProvider>(context,listen: false);
+                           authProvider.register(registerFormProvider.email, registerFormProvider.password, registerFormProvider.name);
+                          }
                         }, 
                         text: 'Crear cuenta',
                         color: Colors.yellow,

@@ -1,3 +1,4 @@
+import 'package:admn_dashboard/providers/auth_provider.dart';
 import 'package:admn_dashboard/providers/sidemenu_provider.dart';
 import 'package:admn_dashboard/router/router.dart';
 import 'package:admn_dashboard/services/navigation_service.dart';
@@ -77,7 +78,13 @@ class SideBar extends StatelessWidget {
 
           const TextSeparator(text:'Exit'),
 
-          MenuItem( text: 'Logout', icon: Icons.exit_to_app_outlined, onPreseed: () {}),
+          MenuItem( 
+            text: 'Logout', 
+            icon: Icons.exit_to_app_outlined, 
+            onPreseed: () {
+              Provider.of<AuthProvider>(context,listen: false).logOut();
+            }
+            ),
           
 
          
