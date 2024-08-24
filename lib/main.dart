@@ -5,6 +5,8 @@ import 'package:admn_dashboard/api/CafeApi.dart';
 import 'package:admn_dashboard/providers/auth_provider.dart';
 import 'package:admn_dashboard/providers/categories_provider.dart';
 import 'package:admn_dashboard/providers/sidemenu_provider.dart';
+import 'package:admn_dashboard/providers/user_form_provider.dart';
+import 'package:admn_dashboard/providers/users_provider.dart';
 import 'package:admn_dashboard/router/router.dart';
 import 'package:admn_dashboard/services/local_storage.dart';
 import 'package:admn_dashboard/services/navigation_service.dart';
@@ -30,10 +32,10 @@ class AppState extends StatelessWidget {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(lazy: false, create: (_) => AuthProvider()),
-
         ChangeNotifierProvider(lazy: false,create:(_) => SideManuProvider()),
-
-         ChangeNotifierProvider(create:(_) => CategoriesProvider())
+        ChangeNotifierProvider(create:(_) => CategoriesProvider()),
+        ChangeNotifierProvider(create:(_) => UsersProvider()),
+        ChangeNotifierProvider(create:(_) => UserFormProvider())
       ],
       child: const MainApp()
     );

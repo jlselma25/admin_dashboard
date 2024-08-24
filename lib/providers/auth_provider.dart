@@ -2,6 +2,7 @@
 
 import 'package:admn_dashboard/api/CafeApi.dart';
 import 'package:admn_dashboard/models/http/auth_response.dart';
+import 'package:admn_dashboard/models/usuario.dart';
 import 'package:admn_dashboard/router/router.dart';
 import 'package:admn_dashboard/services/local_storage.dart';
 import 'package:admn_dashboard/services/navigation_service.dart';

@@ -23,8 +23,8 @@ class CafeApi {
       return resp.data;
 
     }
-    catch(error){
-      print(error);
+    on DioException catch(error){
+      print(error.response);
 
     }
 
@@ -73,9 +73,9 @@ class CafeApi {
       return resp.data;
 
     }
-    catch(error){
+    on DioException catch(error){
       print(error);
-      throw ('Error en el del');
+      throw ('Error en el put $error');
 
     }   
 
