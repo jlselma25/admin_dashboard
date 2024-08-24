@@ -3,6 +3,7 @@
 
 import 'package:admn_dashboard/api/CafeApi.dart';
 import 'package:admn_dashboard/providers/auth_provider.dart';
+import 'package:admn_dashboard/providers/categories_provider.dart';
 import 'package:admn_dashboard/providers/sidemenu_provider.dart';
 import 'package:admn_dashboard/router/router.dart';
 import 'package:admn_dashboard/services/local_storage.dart';
@@ -16,7 +17,7 @@ import 'package:provider/provider.dart';
 
 void main() async{
   await LocalStorage.configurePrefs();
-  CafeApi.configureDio();
+  CafeApi.configureDio();  
   Flurorouter.configureRoutes();
   runApp(const AppState());
 }
@@ -28,13 +29,11 @@ class AppState extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        ChangeNotifierProvider(
-          lazy: false,
-          create: (_) => AuthProvider()),
+        ChangeNotifierProvider(lazy: false, create: (_) => AuthProvider()),
 
-        ChangeNotifierProvider(
-          lazy: false,
-          create:(_) => SideManuProvider())
+        ChangeNotifierProvider(lazy: false,create:(_) => SideManuProvider()),
+
+         ChangeNotifierProvider(create:(_) => CategoriesProvider())
       ],
       child: const MainApp()
     );
